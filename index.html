@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcolatore TDEE</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="nav-brand">Calcolatore TDEE</div>
+        <div class="nav-links">
+            <a href="#calculator">Calcolatore</a>
+            <a href="#faq">FAQ</a>
+        </div>
+    </nav>
+
+    <main>
+        <section id="calculator" class="calculator-section">
+            <h1>Calcola il tuo TDEE</h1>
+            <form id="tdee-form">
+                <div class="form-group">
+                    <label for="gender">Genere:</label>
+                    <select id="gender" required>
+                        <option value="male">Uomo</option>
+                        <option value="female">Donna</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="age">Età:</label>
+                    <input type="number" id="age" required min="15" max="100">
+                </div>
+
+                <div class="form-group">
+                    <label for="weight">Peso (kg):</label>
+                    <input type="number" id="weight" required min="30" max="300" step="0.1">
+                </div>
+
+                <div class="form-group">
+                    <label for="height">Altezza (cm):</label>
+                    <input type="number" id="height" required min="100" max="250">
+                </div>
+
+                <div class="form-group">
+                    <label for="bodyfat">Massa grassa (%):</label>
+                    <input type="number" id="bodyfat" min="3" max="60" step="0.1">
+                    <small>Opzionale - Se non inserito verrà utilizzata la formula Mifflin-St Jeor</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="activity">Livello di attività:</label>
+                    <select id="activity" required>
+                        <option value="1.2">Sedentario (poco o nessun esercizio)</option>
+                        <option value="1.375">Leggermente attivo (esercizio leggero 1-3 giorni/settimana)</option>
+                        <option value="1.55">Moderatamente attivo (esercizio moderato 3-5 giorni/settimana)</option>
+                        <option value="1.725">Molto attivo (esercizio intenso 6-7 giorni/settimana)</option>
+                        <option value="1.9">Estremamente attivo (esercizio molto intenso, lavoro fisico)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="goal">Obiettivo:</label>
+                    <select id="goal" required>
+                        <option value="maintain">Mantenere il peso</option>
+                        <option value="lose">Perdere peso</option>
+                        <option value="gain">Aumentare peso</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="calculate-btn">Calcola TDEE</button>
+            </form>
+
+            <div id="results" class="results hidden">
+                <h2>I tuoi risultati</h2>
+                <div class="result-card">
+                    <p>TDEE Base: <span id="base-tdee">0</span> kcal</p>
+                    <p>Calorie giornaliere consigliate: <span id="adjusted-tdee">0</span> kcal</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="faq" class="faq-section">
+            <h2>Domande Frequenti</h2>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <h3>Cos'è il TDEE?</h3>
+                    <p>Il TDEE (Total Daily Energy Expenditure) è il numero totale di calorie che il tuo corpo brucia in
+                        un giorno, considerando tutte le attività.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Quale formula è più precisa?</h3>
+                    <p>La formula Katch-McArdle (quando si inserisce la massa grassa) è generalmente più precisa perché
+                        tiene conto della composizione corporea. La formula Mifflin-St Jeor è un'ottima alternativa
+                        quando non si conosce la massa grassa.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Come calcolare la massa grassa?</h3>
+                    <p>La massa grassa può essere misurata attraverso vari metodi: plicometria, bilancia
+                        impedenziometrica, o misurazioni professionali. Per una stima accurata, è consigliabile
+                        consultare un professionista.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Quanto peso posso perdere in modo sicuro?</h3>
+                    <p>Una perdita di peso sicura è generalmente di 0.5-1 kg a settimana. Perdere peso troppo
+                        velocemente può portare a perdita di massa muscolare e altri problemi di salute.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Come mantenere una dieta sostenibile?</h3>
+                    <p>Una dieta sostenibile si basa su alcuni principi fondamentali:</p>
+                    <ul>
+                        <li>Moderazione nell'alcol (massimo 1-2 drink occasionali)</li>
+                        <li>Nessuna privazione estrema: è meglio mangiare un po' di tutto in porzioni moderate</li>
+                        <li>Regola 80/20: 80% di cibi nutrienti e 20% di cibi più indulgenti</li>
+                        <li>Porzioni moderate e consapevoli</li>
+                        <li>Pianificazione dei pasti per evitare scelte impulsive</li>
+                        <li>Inclusione di tutti i gruppi alimentari</li>
+                        <li>Focus sul benessere a lungo termine piuttosto che su risultati rapidi</li>
+                    </ul>
+                </div>
+                <div class="faq-item">
+                    <h3>Perché è importante un approccio sostenibile?</h3>
+                    <p>Una dieta sostenibile è un cambiamento di stile di vita che dura per sempre, non solo per la
+                        perdita di peso. Questo approccio:</p>
+                    <ul>
+                        <li>Previene l'effetto yo-yo</li>
+                        <li>Mantiene un buon rapporto con il cibo</li>
+                        <li>Supporta la salute mentale e fisica a lungo termine</li>
+                        <li>Permette di godere della vita sociale senza sensi di colpa</li>
+                        <li>È più facile da mantenere nel tempo</li>
+                    </ul>
+                </div>
+                <div class="faq-item">
+                    <h3>Linee guida nutrizionali ufficiali</h3>
+                    <p>Per informazioni dettagliate e scientificamente validate sulla corretta alimentazione, consulta
+                        le <a
+                            href="https://www.crea.gov.it/documents/59764/0/LINEE-GUIDA%20DEFINITIVO.pdf/28670db4-154c-0ecc-d187-1ee9db3b1c65?t=1576850671654"
+                            target="_blank" rel="noopener noreferrer">Linee Guida per una Sana Alimentazione del
+                            CREA</a>. Questo documento fornisce raccomandazioni basate su evidenze scientifiche per una
+                        corretta alimentazione in tutte le fasi della vita.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2025 Calcolatore TDEE - Creato da Paolo Bietolini</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
